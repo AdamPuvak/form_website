@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulár</title>
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <form id="reservation-form" action="https://form2mail.iolab.sk/form2mail.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="apikey" value="c6645cb4d050845b38f0b4c0a770163a">
+            <input type="hidden" name="from" value="adampuvak@gmail.com">
+            <input type="hidden" name="sender" value="">
+            <input type="hidden" name="to" value="adampuvak@gmail.com">
+            <input type="hidden" name="subject" value="Formulár">
+            <input type="hidden" name="redirectOk" value="https://webte1.fei.stuba.sk/~xpuvak/mckinley66/redirectOk.html">
+            <input type="hidden" name="redirectFalse" value="https://webte1.fei.stuba.sk/~xpuvak/mckinley66/redirectFalse.html">
+
+        <h1>Rezervácia v reštaurácii</h1>
+        <div class="section-container">
+            <div class="form-section">
+                <h2>Večera</h2>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="branch">Pobočka:</label>
+                        <select id="branch" name="Pobočka">
+                            <option value="" disabled selected>Vyberte pobočku</option>
+                            <option value="Bratislava">Bratislava</option>
+                            <option value="Košice">Košice</option>
+                            <option value="Banská_Bystrica">Banská bystrica</option>
+                        </select>
+                        <div class="error-message" id="error-mess-branch"></div>
+                    </div>
+                    <div class="form-column">
+                        <label for="date">Dátum:</label>
+                        <input type="date" id="date" name="Dátum">
+                        <div class="error-message" id="error-mess-date"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="theme">Tématika:</label>
+                        <select id="theme" name="Tématika">
+                            <option value="" disabled selected>Vyberte tématiku</option>
+                        </select>
+                        <div class="error-message" id="error-mess-theme"></div>
+                    </div>
+                    <div class="form-column">
+                        <label for="time">Čas:</label>
+                        <select id="time" name="Čas">
+                            <option value="" disabled selected>Vyberte čas</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                        </select>
+                        <div class="error-message" id="error-mess-time"></div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="main-dish">Hlavný chod:</label>
+                        <select id="main-dish" name="Hlavný chod">
+                            <option value="" disabled selected>Vyberte hlavný chod</option>
+                        </select>
+                        <div class="error-message" id="error-mess-main-dish"></div>
+                    </div>
+                    <div class="form-column">
+                        <label for="no-people">Počet osôb:</label>
+                        <input type="number" id="no-people" name="Počet osôb" min="1" max="10">
+                        <div class="error-message" id="error-mess-no-people"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label>Hudba:</label><br>
+                        <input type="checkbox" id="option1" name="Hudba" value="Pop">
+                        <label for="option1">Pop</label><br>
+                        <input type="checkbox" id="option2" name="Hudba" value="Jazz">
+                        <label for="option2">Jazz</label><br>
+                        <input type="checkbox" id="option3" name="Hudba" value="Rock">
+                        <label for="option3">Rock</label><br>
+                        <input type="checkbox" id="option4" name="Hudba" value="Iná">
+                        <label for="option4">Iná</label>
+                    </div>
+                </div>
+                <div class="form-row" id="other-option-row" style="display: none;">
+                    <div class="form-column">
+                        <label for="other-option">Iná hudba:</label>
+                        <input type="text" id="other-option" name="Iná hudba" maxlength="20">
+                        <span class="char-counter" id="other-option_c">0 / 20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Osobné informácie</h2>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="first-name">Meno:</label>
+                        <input type="text" id="first-name" name="Krstné meno" placeholder="Krstné meno" maxlength="20">
+                        <div class="error-message" id="error-mess-first-name"></div>
+                        <span class="char-counter" id="first-name_c">0 / 20</span>
+                    </div>
+                    <div class="form-column">
+                        <label for="birth-date">Dátum narodenia:</label>
+                        <input type="date" id="birth-date" name="Dátum narodenia">
+                        <div class="error-message" id="error-mess-birth-date"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="last-name">Priezvisko:</label>
+                        <input type="text" id="last-name" name="Priezvisko" placeholder="Priezvisko" maxlength="20">
+                        <div class="error-message" id="error-mess-last-name"></div>
+                        <span class="char-counter" id="last-name_c">0 / 20</span>
+                    </div>
+                    <div class="form-column">
+                        <label for="age">Vek:</label>
+                        <input type="number" id="age" name="Vek" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label>Boli ste už u nás?</label><br>
+                        <input type="radio" id="yes" name="Boli ste už u nás?" value="áno">
+                        <label for="yes">Áno</label><br>
+                        <input type="radio" id="no" name="Boli ste už u nás?" value="nie">
+                        <label for="no">Nie</label>
+                    </div>
+                    <div class="form-column">
+                        <label for="gender">Pohlavie:</label>
+                        <select id="gender" name="Pohlavie">
+                            <option value="" disabled selected>Vyberte pohlavie</option>
+                            <option value="Muž">Muž</option>
+                            <option value="Žena">Žena</option>
+                        </select>
+                        <div class="error-message" id="error-mess-gender"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <div id="yes-field" style="display: none;">
+                            <label>Akú máte skúsenosť?</label>
+                            <textarea id="yes-answer" name="Akú máte skúsenosť?" rows="3" maxlength="30"></textarea>
+                            <span class="char-counter" id="yes-answer_c">0 / 30</span>
+                        </div>
+                        <div id="no-field" style="display: none;">
+                            <label>Aké máte oćakávania?</label>
+                            <textarea id="no-answer" name="Aké máte očakávania?" rows="3" maxlength="30"></textarea>
+                            <span class="char-counter" id="no-answer_c">0 / 30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Kontaktné informácie</h2>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="email">E-mail:</label>
+                        <input type="text" id="email" name="email" placeholder="name@domain.com" maxlength="30">
+                        <div class="error-message" id="error-mess-mail"></div>
+                        <span class="char-counter" id="email_c">0 / 30</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="phone-number">Telefónne číslo:</label>
+                        <select name="Predvoľba">
+                            <option value="+421">+421</option>
+                            <option value="+420">+420</option>
+                        </select>
+                        <input type="tel" id="phone-number" name="Telefónne číslo" placeholder="912345678" maxlength="20">
+                        <span class="char-counter" id="phone-number_c">0 / 20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <div class="form-row">
+                    <button type="button" id="open-modal-button">Prejsť k objednávke</button>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <button type="button" id="show-hidden-name">Skryté pole</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <div id="hidden-name" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="order-summary-modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <h2 class="modal-title">Detaily objednávky</h2>
+                <div id="modal-content-container"></div>
+                <p id="total-price">Celková cena: <span id="price-value">0</span> EUR</p>
+                <button type="submit" id="submit-button">Odoslať rezerváciu</button>
+            </div>
+        </div>
+    </form>
+    <script src="JS/form.js"></script>
+</body>
+</html>
